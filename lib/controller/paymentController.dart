@@ -22,17 +22,20 @@ class PaymentController extends GetxController {
     try {
       pay.open(options);
     } catch (e) {
-      Get.snackbar("Error", "Payment Failed !");
+      Get.snackbar("Error", "Payment Failed !",
+          snackPosition: SnackPosition.BOTTOM);
     }
   }
 
   void success(PaymentSuccessResponse s) {
     Get.snackbar("Sucesss",
-        "Payment Successfully completed!\n Payment Id is:" + "${s.paymentId}");
+        "Payment Successfully completed!\n Payment Id is:" + "${s.paymentId}",
+        snackPosition: SnackPosition.BOTTOM);
   }
 
   void error(PaymentFailureResponse s) {
-    Get.snackbar("Failed ", "Payment Failed !\n" + "${s.message}");
+    Get.snackbar("Failed ", "Payment Failed !\n" + "${s.message}",
+        snackPosition: SnackPosition.BOTTOM);
   }
 
   @override

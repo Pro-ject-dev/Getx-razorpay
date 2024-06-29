@@ -9,27 +9,36 @@ class PaymentUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text("Task-2 Razorpay Payment Integeration with Getx")),
+        appBar: AppBar(title: Text("Task-2 Razorpay Integeration ")),
         body: Center(
             child: MaterialButton(
                 onPressed: () {
                   Get.defaultDialog(
-                      title: "Enter The Amount",
+                      title: "Enter the Amount",
                       content: Column(
                         children: [
                           TextFormField(
+                            textAlign: TextAlign.center,
                             controller: amt,
+                            style: TextStyle(
+                                fontSize: 22, fontWeight: FontWeight.w700),
                           ),
+                          SizedBox(height: 10),
                           MaterialButton(
                               onPressed: () {
+                                Get.back();
                                 controller.Payment(int.parse(amt.text));
                               },
-                              child: Text("Pay"))
+                              child: Text(
+                                "Pay",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              color: Colors.blue)
                         ],
                       ));
                 },
-                child: Text("Click to Pay"),
+                child:
+                    Text("Click to Pay", style: TextStyle(color: Colors.white)),
                 color: Colors.blue)));
   }
 }
